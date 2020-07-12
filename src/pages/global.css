@@ -1,0 +1,9 @@
+html, body, div, ul, li, input {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    outline: none;
+}

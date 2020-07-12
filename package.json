@@ -1,0 +1,20 @@
+{
+  "scripts": {
+    "dev": "next"
+  },
+  "dependencies": {
+    "@react-firebase/auth": "^0.2.10",
+    "babel-plugin-styled-components": "^1.10.7",
+    "cookie": "^0.4.1",
+    "debounce": "^1.2.0",
+    "firebase": "^7.15.5",
+    "firebase-admin": "^8.13.0",
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "^9.4.4",
+    "next-auth": "^2.2.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "rich-markdown-editor": "^10.2.1-0",
+    "styled-components": "^5.1.1"
+  }
+}
