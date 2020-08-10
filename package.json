@@ -16,5 +16,8 @@
     "react-dom": "^16.13.1",
     "rich-markdown-editor": "^10.2.1-0",
     "styled-components": "^5.1.1"
+  },
+  "devDependencies": {
+    "vercel": "^19.2.0"
   }
 }
