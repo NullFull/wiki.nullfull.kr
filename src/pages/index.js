@@ -10,16 +10,15 @@ const Index = () => {
     return null
 }
 
-Index.getInitialProps = async (ctx) => {
-    const { res } = ctx
-
-    if (res) {
-        res.writeHead(301, {Location: URL_INDEX}).end()
+Index.getInitialProps = async ({req, res}) => {
+    if (req) {
+        res.writeHead(301, {
+            Location: encodeURI(URL_INDEX)
+        })
+        res.end()
     }
 
-    return {
-
-    }
+    return {}
 }
 
 
