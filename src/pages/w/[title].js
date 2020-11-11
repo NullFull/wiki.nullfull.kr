@@ -36,6 +36,10 @@ const Page = ({title, page}) => {
     const [editable, setEditable] = React.useState(false)
     const [content, setContent] = React.useState(page ? page.content : '')
 
+    React.useEffect(() => {
+        setContent(page ? page.content : '')
+    }, [page])
+
     const handleChange = debounce(value => {
         setContent(value)
     }, 500)
@@ -83,6 +87,7 @@ const Page = ({title, page}) => {
                         }
                     }}
                     readOnly={!editable}
+                    value={content}
                     defaultValue={content}
                     onChange={handleChange}
                 />
