@@ -32,7 +32,7 @@ const getPage = async (req, res, title) => {
     if (query.empty) {
         res.statusCode = 404
         res.setHeader('Content-Type', 'application/json; charset=utf-8')
-        res.end(JSON.stringify({
+        return res.end(JSON.stringify({
             message: 'Not Found'
         }))
     }
@@ -40,7 +40,7 @@ const getPage = async (req, res, title) => {
     const page = query.docs[0].data()
 
     res.setHeader('Content-Type', 'application/json; charset=utf-8')
-    res.end(JSON.stringify({
+    return res.end(JSON.stringify({
         data: page
     }))
 }
