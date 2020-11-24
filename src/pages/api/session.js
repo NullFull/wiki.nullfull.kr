@@ -30,7 +30,6 @@ export default async (req, res) => {
         const session = await firebase.auth().createSessionCookie(idToken, {expiresIn: MAX_AGE})
 
         res.setHeader('Set-Cookie', cookie.serialize(SESSION_KEY, session, {
-            maxAge: MAX_AGE,
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
             path: '/'
