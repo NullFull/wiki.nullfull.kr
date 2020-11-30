@@ -87,8 +87,8 @@ const Page = ({title, page}) => {
                         }
                     }}
                     readOnly={!editable}
-                    value={page.content}
-                    defaultValue={page.content}
+                    value={page ? page.content : ''}
+                    defaultValue={page ? page.content : ''}
                     onChange={handleChange}
                 />
             </Content>
