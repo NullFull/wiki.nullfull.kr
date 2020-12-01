@@ -28,6 +28,7 @@ export default async (req, res) => {
         const idToken = req.body.idToken.toString()
 
         const session = await firebase.auth().createSessionCookie(idToken, {expiresIn: MAX_AGE})
+        const decoded = await firebase.auth().verifySessionCookie(session)
 
         res.setHeader('Set-Cookie', cookie.serialize(SESSION_KEY, session, {
             httpOnly: true,
@@ -36,7 +37,7 @@ export default async (req, res) => {
         }))
         res.setHeader('Content-Type', 'application/json; charset=utf-8')
         res.end(JSON.stringify({
-            session
+            data: decoded
         }))
     } else if (req.method === 'DELETE') {
         res.setHeader('Set-Cookie', cookie.serialize(SESSION_KEY, {}, {
@@ -46,5 +47,4 @@ export default async (req, res) => {
         res.setHeader('Content-Type', 'application/json; charset=utf-8')
         res.end(JSON.stringify({}))
     }
-
 }
