@@ -72,6 +72,7 @@ const Page = ({title, page}) => {
             <Content>
                 <h1>{title}</h1>
                 <Editor
+                    key={title}
                     onCreateLink={name => {
                         return new Promise((resolve => {
                             resolve(name2url(name))
