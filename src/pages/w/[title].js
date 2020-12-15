@@ -108,25 +108,28 @@ const Page = ({title, page}) => {
 }
 
 
-Page.getInitialProps = async ({ query }) => {
+export default Page
+
+export async function getServerSideProps({ query }) {
     const { title } = query
     const normalizedTitle = url2name(title)
 
     try {
         const [_, page] = await client.get(`/pages/${encodeURI(title)}`)
         return {
-            title: normalizedTitle,
-            page
+            props: {
+                title: normalizedTitle,
+                page
+            }
         }
     } catch (e) {
         return {
-            title: normalizedTitle,
-            page: null
+            props: {
+                title: normalizedTitle,
+                page: null
+            }
         }
     } finally {
 
     }
 }
-
-
-export default Page
