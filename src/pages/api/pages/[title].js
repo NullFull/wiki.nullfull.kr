@@ -6,7 +6,7 @@ const updatePage = async (req, res, title, content) => {
     const admin = getFirebase()
     const db = admin.firestore()
 
-    db.collection('pages').add({
+    await db.collection('pages').add({
         title,
         content,
         timeCreated: new Date()
@@ -46,14 +46,14 @@ const getPage = async (req, res, title) => {
 }
 
 
-export default (req, res) => {
+export default async (req, res) => {
     const { title } = req.query
     const normalizedTitle = url2name(title)
 
     if (req.method === 'GET') {
-        getPage(req, res, normalizedTitle)
+        await getPage(req, res, normalizedTitle)
     } else if (req.method === 'POST') {
         const { content } = req.body
-        updatePage(req, res, normalizedTitle, content)
+        await updatePage(req, res, normalizedTitle, content)
     }
 }
